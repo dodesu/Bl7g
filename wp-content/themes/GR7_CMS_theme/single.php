@@ -38,7 +38,7 @@
                 </div>
                 <div class="down-content">
                   <?php foreach (get_the_category() as $cat): ?>
-                    <span><?= $cat->name ?></span>
+                    <a href="<?= get_category_link($cat->term_id) ?>"><span><?= $cat->name ?></span></a>
                   <?php endforeach; ?>
                   <a href="#" style="pointer-events: none;">
                     <h4><?php the_title() ?></h4>
@@ -48,7 +48,7 @@
                     $post_id = get_the_ID();
                     $author_id = get_post_field('post_author', $post_id);
                     $author_name = get_the_author_meta('display_name', $author_id);
-                    $author_url = get_the_author_meta('user_url', $author_id);
+                    $author_url = get_author_posts_url($author_id);
                     ?>
                     <li><a href="<?= $author_url ?>"><?= $author_name ?></a>
                     <li><a href="#" style="pointer-events: none;"><?= get_the_date() ?></a></li>

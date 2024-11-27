@@ -81,8 +81,8 @@ elseif (is_page('login')): ?>
         </section>
     </div>
 
-    <?php elseif (is_page('user')): ?>
-    <div class="heading-page header-text">
+<?php elseif (is_page('user')): ?>
+    <div class="heading-page header-text mx-0">
         <section class="page-heading">
             <div class="container">
                 <div class="row">
@@ -90,11 +90,14 @@ elseif (is_page('login')): ?>
                         <div class="text-content">
                             <h4>Informations</h4>
                             <h2>User</h2>
-                            <?= do_shortcode('[ultimatemember form_id="18"]'); ?>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section style="background: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%); margin-bottom: -100px; width: 100%;">
+            <?= do_shortcode('[ultimatemember form_id="18"]'); ?>
         </section>
     </div>
 <?php endif; ?>
