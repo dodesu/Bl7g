@@ -11,11 +11,7 @@
 
 <!-- BLOG POST BEGGIN -->
 <?php
-if (is_home()) {
-  get_template_part('content-blog');
-} else {
-  get_template_part('content-all');
-}
+get_template_part('content-blog');
 ?>
 <!-- BLOG POST BEGGIN -->
 

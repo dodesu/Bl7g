@@ -4,37 +4,38 @@
             <div class="col-lg-8">
                 <div class="all-blog-posts">
                     <div class="row">
-                        <!-- BLOG BEGGIN -->
-                        <?php
-                        $posts = get_top_month_posts();
-                        if ($posts):
-                            foreach ($posts as $post): ?>
-                                <div class="col-lg-12">
-                                    <div class="blog-post">
-                                        <div class="blog-thumb">
-                                            <img src="<?= get_the_post_thumbnail_url(null, 'full') ?>" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                            <?php foreach (get_the_category() as $cat): ?>
-                                                <a href="<?= get_category_link($cat->term_id) ?>"><span><?= $cat->name ?></span></a>
-                                            <?php endforeach; ?>
+                        <!-- BLOG BEGGIN -HOME-->
+                        <?php if (is_home()): ?>
+                            <?php
+                            $posts = get_top_month_posts(5);
+                            if ($posts):
+                                foreach ($posts as $post): ?>
+                                    <div class="col-lg-12">
+                                        <div class="blog-post">
+                                            <div class="blog-thumb">
+                                                <img src="<?= get_the_post_thumbnail_url(null, 'full') ?>" alt="">
+                                            </div>
+                                            <div class="down-content">
+                                                <?php foreach (get_the_category() as $cat): ?>
+                                                    <a href="<?= get_category_link($cat->term_id) ?>"><span><?= $cat->name ?></span></a>
+                                                <?php endforeach; ?>
 
-                                            <a href="<?= get_permalink() ?>">
-                                                <h4><?php the_title() ?></h4>
-                                            </a>
-                                            <ul class="post-info">
-                                                <li><a href="<?php get_the_author_posts_link() ?>"><?= get_the_author() ?></a>
-                                                </li>
-                                                <li><a href="#" style="pointer-events: none;"><?= get_the_date() ?></a></li>
-                                                <li><a href="#" style="pointer-events: none;"><?= get_comments_number() ?>
-                                                        Comments</a></li>
-                                                <li><a href="#"
-                                                        style="pointer-events: none;"><?= pvc_get_post_views(get_the_ID()) ?>
-                                                        Views</a>
-                                                </li>
-                                            </ul>
-                                            <?php the_excerpt() ?>
-                                            <!-- <div class="post-options">
+                                                <a href="<?= get_permalink() ?>">
+                                                    <h4><?php the_title() ?></h4>
+                                                </a>
+                                                <ul class="post-info">
+                                                    <li><a href="<?php get_the_author_posts_link() ?>"><?= get_the_author() ?></a>
+                                                    </li>
+                                                    <li><a href="#" style="pointer-events: none;"><?= get_the_date() ?></a></li>
+                                                    <li><a href="#" style="pointer-events: none;"><?= get_comments_number() ?>
+                                                            Comments</a></li>
+                                                    <li><a href="#"
+                                                            style="pointer-events: none;"><?= pvc_get_post_views(get_the_ID()) ?>
+                                                            Views</a>
+                                                    </li>
+                                                </ul>
+                                                <?php the_excerpt() ?>
+                                                <!-- <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <ul class="post-tags">
@@ -51,26 +52,72 @@
                                                     </div>
                                                 </div>
                                             </div> -->
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        <!-- BLOG END -->
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="<?= THEME_URI . '/all-posts'; ?>">View All Posts</a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <!-- BLOG END -->
+                            <div class="col-lg-12">
+                                <div class="main-button">
+                                    <a href="<?= THEME_URI . '/all-posts'; ?>">View All Posts</a>
+                                </div>
                             </div>
-                        </div>
+                            <!-- HOME END -->
+                        <?php else: ?>
+                            <!--ALL BLOG BEGGIN -->
+                            <?php
+                            $posts = get_top_month_posts();
+                            if ($posts):
+                                foreach ($posts as $post): ?>
+
+                                    <div class="col-lg-12">
+                                        <div class="blog-post">
+                                            <div class="blog-thumb">
+                                                <img src="<?= get_the_post_thumbnail_url(null, 'full') ?>" alt="">
+                                            </div>
+                                            <div class="down-content">
+                                                <?php foreach (get_the_category() as $cat): ?>
+                                                    <span><?= $cat->name ?></span>
+                                                <?php endforeach; ?>
+
+                                                <a href="<?= get_permalink() ?>">
+                                                    <h4><?php the_title() ?></h4>
+                                                </a>
+                                                <ul class="post-info">
+                                                    <li><a href="<?php get_the_author_posts_link() ?>"><?= get_the_author() ?></a>
+                                                    </li>
+                                                    <li><a href="#" style="pointer-events: none;"><?= get_the_date() ?></a></li>
+                                                    <li><a href="#" style="pointer-events: none;"><?= get_comments_number() ?>
+                                                            Comments</a></li>
+                                                    <li><a href="#"
+                                                            style="pointer-events: none;"><?= pvc_get_post_views(get_the_ID()) ?>
+                                                            Views</a>
+                                                    </li>
+                                                </ul>
+                                                <?php the_excerpt() ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <?php endforeach; ?>
+                                <!-- Pagging -->
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <!--ALL BLOG END -->
+
                     </div>
                 </div>
             </div>
 
 
             <!-- =====  SIDEBAR BEGGIN   ======  -->
-<?php get_template_part('sidebar'); ?>
+            <?php get_template_part('sidebar'); ?>
             <!-- =====  SIDEBAR END   ======  -->
+
+            <?php if (is_page('all-posts'))
+                get_template_part('pagination'); ?>
         </div>
     </div>
 </section>
