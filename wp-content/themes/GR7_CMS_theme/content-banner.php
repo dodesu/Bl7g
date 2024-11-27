@@ -14,7 +14,7 @@
               <div class="main-content">
                 <div class="meta-category">
                   <?php foreach (get_the_category() as $cat): ?>
-                    <span><?= $cat->name ?></span>
+                    <a href="<?= get_category_link($cat->term_id) ?>"><span><?= $cat->name ?></span></a>
                   <?php endforeach; ?>
                 </div>
                 <a href="<?= get_permalink() ?>">

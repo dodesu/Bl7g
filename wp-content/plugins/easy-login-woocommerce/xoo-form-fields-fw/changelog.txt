@@ -1,5 +1,0 @@
-== 2.0 ==
-* Profile Picture Field
-
-== 1.7 ==
-* Select 2 library optional
