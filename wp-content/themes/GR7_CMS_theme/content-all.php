@@ -34,7 +34,7 @@
                                                 </li>
                                             </ul>
                                             <?php the_excerpt() ?>
-                                            <div class="post-options">
+                                            <!-- <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <ul class="post-tags">
@@ -51,7 +51,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

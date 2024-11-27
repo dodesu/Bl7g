@@ -34,13 +34,12 @@
                                                 </li>
                                             </ul>
                                             <?php the_excerpt() ?>
-                                            <div class="post-options">
+                                            <!-- <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <ul class="post-tags">
                                                             <li><i class="fa fa-tags"></i></li>
                                                             <li><a href="#">Beauty</a>,</li>
-                                                            <li><a href="#">Nature</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-6">
@@ -51,7 +50,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
